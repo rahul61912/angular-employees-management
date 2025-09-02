@@ -1,0 +1,92 @@
+<div *ngIf="currentEmployeesList.length > 0 || previousEmployeesList.length > 0; then itemsList else noItems"></div>
+
+<ng-template #itemsList>
+  <div *ngIf="currentEmployeesList.length > 0">
+    <div class="toolbar container-fluid py-2 mb-3 border-bottom" role="banner">
+      <h4 class="m-0">Current Employees</h4>
+    </div>
+
+    <div class="employee-list">
+      <div class="row g-3">
+        <div class="col-12 col-md-6 col-lg-3 shawdow-sm border-end border-bottom mt-0"
+          *ngFor="let employee of currentEmployeesList">
+
+          <div class="employee-card h-100 d-flex justify-content-between align-items-start p-3">
+
+            <div>
+              <p class="mb-2 fs-5">{{ employee.name }}</p>
+              <p class="mb-2 fs-6 text-muted">{{ employee.role }}</p>
+              <p class="mb-2 fs-6 text-muted">
+                From {{ employee.fromDate | date:'d MMM, y' }}
+              </p>
+            </div>
+
+            <div class="d-flex flex-column gap-2">
+              <button type="button" class="btn btn-danger btn-sm action-btn" (click)="deleteEmployee(employee.id)">
+                <i class="material-icons" >delete</i>
+              </button>
+
+              <button type="button" class="btn btn-primary btn-sm action-btn">
+                <i class="material-icons" routerLink="/employees/details/{{employee.id}}">edit</i>
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div *ngIf="previousEmployeesList.length > 0">
+    <div class="toolbar container-fluid py-2 mb-3 border-bottom" role="banner">
+      <h4 class="m-0">Previous employees</h4>
+    </div>
+
+    <div class="employee-list">
+      <div class="row g-3">
+        <div class="col-12 col-md-6 col-lg-3 shawdow-sm border-end border-bottom mt-0"
+          *ngFor="let previousEmployee of previousEmployeesList">
+
+          <div class="employee-card h-100 d-flex justify-content-between align-items-start p-3">
+
+            <div>
+              <p class="mb-2 fs-5">{{ previousEmployee.name }}</p>
+              <p class="mb-2 fs-6 text-muted">{{ previousEmployee.role }}</p>
+              <p class="mb-2 fs-6 text-muted">
+                {{ previousEmployee.fromDate | date:'d MMM, y' }} -
+                {{ previousEmployee.toDate | date:'d MMM, y' }}
+              </p>
+            </div>
+
+            <div class="d-flex flex-column gap-2">
+              <button type="button" class="btn btn-danger action-btn" (click)="deleteEmployee(previousEmployee.id)">
+                <i class="material-icons">delete</i>
+              </button>
+
+              <button type="button" class="btn btn-primary action-btn">
+                <i class="material-icons" routerLink="/employees/details/{{previousEmployee.id}}">edit</i>
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</ng-template>
+
+<ng-template #noItems>
+  <div class="listNotFound">
+    <img src="../../../assets/img/svgviewer-output.svg" alt="Icon" />
+  </div>
+</ng-template>
+
+<div class="fab-container">
+  <button type="button" class="btn rounded" routerLink="/employees/details">
+    <i class="material-icons">add</i>
+  </button>
+</div>

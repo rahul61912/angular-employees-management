@@ -1,0 +1,61 @@
+.listNotFound {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.fab-container {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+}
+
+.btn {
+    background-color: #1DA1F2;
+    border: none;
+    width: 56px;
+    height: 56px;
+    color: white;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.toolbar {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #EDF8FF;
+    color: #1DA1F2;
+    font-weight: 500;
+
+}
+
+.employee-card {
+    cursor: pointer;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    // color: #1DA1F2;
+    font-weight: 500;
+}
+
+.action-btn {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.action-btn i {
+  font-size: 18px;
+  line-height: 1;
+}
+

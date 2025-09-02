@@ -1,0 +1,80 @@
+<form #employeeForm="ngForm">
+    <div class="container mt-3">
+        <div class="row g-3 align-items-center">
+
+            <!-- Employee Name -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="input-group">
+                    <span class="input-group-text"
+                        [ngStyle]="{ 'border-color': isValidateForm && !employeeDetails.name ? 'red' : '' }">
+                        <img src="../../../assets/img/person_2_25dp_1DA1F2_FILL0_wght200_GRAD0_opsz24.svg">
+                    </span>
+                    <input type="text" class="form-control"
+                        [ngStyle]="{ 'border-color': isValidateForm && !employeeDetails.name ? 'red' : '' }"
+                        placeholder="Employee name" name="name" [(ngModel)]="employeeDetails.name" required>
+                </div>
+            </div>
+
+            <!-- Role -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="input-group">
+                    <span class="input-group-text"
+                        [ngStyle]="{ 'border-color': isValidateForm && !employeeDetails.role ? 'red' : '' }">
+                        <img src="../../../assets/img/work_25dp_1DA1F2_FILL0_wght200_GRAD0_opsz24.svg">
+                    </span>
+                    <select class="form-select" name="role" [(ngModel)]="employeeDetails.role" required
+                        [ngStyle]="{ 'border-color': isValidateForm && !employeeDetails.role ? 'red' : '' }">
+                        <option value="" disabled>Select role</option>
+                        <option value="Product Designer">Product Designer</option>
+                        <option value="Flutter Developer">Flutter Developer</option>
+                        <option value="QA Tester">QA Tester</option>
+                        <option value="Product Owner">Product Owner</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Date Range -->
+            <div class="col-12 col-lg-6">
+                <div class="row g-2 align-items-center text-center">
+                    <!-- From Date -->
+                    <div class="col-5 col-sm-5 col-md-5">
+                        <div class="input-group">
+                            <span class="input-group-text"
+                                [ngStyle]="{ 'border-color': isValidateForm && !employeeDetails.fromDate ? 'red' : '' }">
+                                <img src="../../../assets/img/event_25dp_1DA1F2_FILL0_wght200_GRAD0_opsz24.svg">
+                            </span>
+                            <input
+                                [ngStyle]="{ 'border-color': isValidateForm && !employeeDetails.fromDate ? 'red' : '' }"
+                                type="text" class="form-control date-fontSize" bsDatepicker placeholder="From date"
+                                name="fromDate" [(ngModel)]="employeeDetails.fromDate" required>
+                        </div>
+                    </div>
+
+                    <!-- Arrow -->
+                    <div class="col-2 col-sm-2 col-md-2">
+                        <span class="fs-4 d-block">→</span>
+                    </div>
+
+                    <!-- To Date -->
+                    <div class="col-5 col-sm-5 col-md-5">
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <img src="../../../assets/img/event_25dp_1DA1F2_FILL0_wght200_GRAD0_opsz24.svg">
+                            </span>
+                            <input type="text" name="toDate" [(ngModel)]="employeeDetails.toDate"
+                                (ngModelChange)="validateToDate($event)" 
+                            class="form-control date-fontSize"
+                            bsDatepicker
+                            placeholder="To date">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-end fixed-bottom p-3 bg-white border-top border-3">
+            <button type="button" class="btn cancel-btn me-3" routerLink="/employees/list">Cancel</button>
+            <button type="button" class="btn save-btn" (click)="saveEmployee(employeeForm)">Save</button>
+        </div>
+    </div>
+</form>

@@ -1,1 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/*# sourceMappingURL=bs-datepicker.css.map */
+
+
+.theme-green .bs-datepicker-body table td.week span,
+.bs-datepicker-body table th {
+    color: #1DA1F2;
+}
+
+.theme-green .bs-datepicker-head,
+.theme-green .bs-datepicker-body table td span.selected {
+    background-color: #1DA1F2;
+}
+
+@media (max-width: 767px) {
+    bs-datepicker-container {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        position: static !important;
+        transform: none !important;
+    }
+
+    .date-fontSize {
+        font-size: 14px !important;
+        padding-left: 0px !important;
+    }
+
+}
+
+* {
+  touch-action: pan-y !important;
+}
+
+p {
+  font-family: Lato;
+}

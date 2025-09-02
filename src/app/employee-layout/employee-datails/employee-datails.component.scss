@@ -1,0 +1,43 @@
+.fs-samller {
+    font-size: smaller;
+}
+
+.input-group-text {
+    background-color: white;
+    border-right: none;
+}
+
+.form-control,
+.form-select {
+    border-left: none;
+}
+
+.form-control:focus,
+.form-select:focus {
+    box-shadow: none;
+    border-color: #ced4da;
+}
+
+.cancel-btn {
+    color: #1DA1F2;
+    background-color: #EDF8FF;
+
+}
+
+.save-btn {
+    color: #FFFFFF;
+    background-color: #1DA1F2;
+}
+
+// @media (max-width: 575.98px) {
+//     bs-datepicker-container {
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//     }
+// }
+
+// /* Medium devices (md and below, e.g. <768px) */
+// @media (max-width: 767.98px) {
+//     /* Your CSS here */
+// }
