@@ -1,8 +1,12 @@
+<div class="toolbar container-fluid" role="banner">
+  <span>Employee List </span>
+</div>
+
 <div *ngIf="currentEmployeesList.length > 0 || previousEmployeesList.length > 0; then itemsList else noItems"></div>
 
 <ng-template #itemsList>
   <div *ngIf="currentEmployeesList.length > 0">
-    <div class="toolbar container-fluid py-2 mb-3 border-bottom" role="banner">
+    <div class="toolbarEmployeeList container-fluid py-2 mb-3 border-bottom" role="banner">
       <h4 class="m-0">Current Employees</h4>
     </div>
 
@@ -40,7 +44,7 @@
 
 
   <div *ngIf="previousEmployeesList.length > 0">
-    <div class="toolbar container-fluid py-2 mb-3 border-bottom" role="banner">
+    <div class="toolbarEmployeeList container-fluid py-2 mb-3 border-bottom" role="banner">
       <h4 class="m-0">Previous employees</h4>
     </div>
 
@@ -60,10 +64,10 @@
               </p>
             </div>
 
-            <div class="d-flex flex-column gap-2">
-              <button type="button" class="btn btn-danger action-btn" (click)="deleteEmployee(previousEmployee.id)">
+            <div class="d-flex flex-column gap-2"><button type="button" class="btn btn-danger action-btn" (click)="deleteEmployee(previousEmployee.id)">
                 <i class="material-icons">delete</i>
               </button>
+              
 
               <button type="button" class="btn btn-primary action-btn">
                 <i class="material-icons" routerLink="/employees/details/{{previousEmployee.id}}">edit</i>

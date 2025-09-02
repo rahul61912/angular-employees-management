@@ -33,13 +33,6 @@ export class EmployeeDatailsComponent {
     toDate: null
   });
 
-  resetEmployeeDetails: Employee = {
-    employeeId: null,
-    name: '',
-    role: '',
-    fromDate: null,
-    toDate: null
-  };
 
   constructor(
     private indexedDbService: IndexedDbService,
@@ -93,7 +86,6 @@ export class EmployeeDatailsComponent {
       });
     }
 
-    this.employeeDetails.set({ ...this.resetEmployeeDetails });
     this.router.navigate(['/employees/list']);
   }
 
@@ -114,4 +106,8 @@ export class EmployeeDatailsComponent {
       setTimeout(() => {this.employeeDetails.update(e => ({ ...e, toDate: '' }));},0)
     }
   }
+  async deleteEmployee(id: any) {
+    await this.indexedDbService.deleteEmployeeById(id);
+    this.router.navigate(['/employees/list']);
+  } 
 }
