@@ -1,0 +1,12 @@
+/* Do this (good for extensions): */
+.extension-root {
+  margin: 0;
+  padding: 12px;
+   width: 420px;
+  height: 600px;
+  min-width: 400px;
+  min-height: 600px;
+  font-family: Roboto, Arial, sans-serif;
+  overflow: auto;
+  background: #fff;
+}

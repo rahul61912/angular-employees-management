@@ -34,7 +34,22 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "manifest.json",
+                "input": "src/",
+                "output": "/"
+              },
+              {
+                "glob": "background.js",
+                "input": "src/",
+                "output": "/"
+              },
+              {
+                "glob": "content.js",
+                "input": "src/",
+                "output": "/"
+              }
             ],
             "styles": [
               "@angular/material/prebuilt-themes/pink-bluegrey.css",
@@ -69,6 +84,50 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
+            },
+            "extension": {
+              "outputPath": "dist/extension",
+              "index": "src/extension-popup.html",
+              "main": "src/main.ts",
+              "assets": [
+                "src/favicon.ico",
+                "src/assets",
+                {
+                  "glob": "manifest.json",
+                  "input": "src/",
+                  "output": "/"
+                },
+                {
+                  "glob": "background.js",
+                  "input": "src/",
+                  "output": "/"
+                },
+                {
+                  "glob": "content.js",
+                  "input": "src/",
+                  "output": "/"
+                },
+                {
+                  "glob": "extension-popup.css",
+                  "input": "src/",
+                  "output": "/"
+                }
+              ],
+              "styles": [
+                "@angular/material/prebuilt-themes/pink-bluegrey.css",
+                "node_modules/bootstrap/dist/css/bootstrap.min.css",
+                "ngx-bootstrap/datepicker/bs-datepicker.css",
+                "src/styles.scss",
+                "src/extension-popup.css"
+              ],
+              "scripts": [
+                "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+              ],
+              "optimization": {
+                "styles": {
+                  "inlineCritical": false
+                }
+              }
             }
           },
           "defaultConfiguration": "production"
@@ -81,6 +140,9 @@
             },
             "development": {
               "browserTarget": "employees_list:build:development"
+            },
+            "extension": {
+              "browserTarget": "employees_list:build:extension"
             }
           },
           "defaultConfiguration": "development"
